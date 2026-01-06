@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout(~{::div})}">
+<body>
+    <div>
+        <h2>Dashboard Operacional</h2>
+        
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-header">Gmail Total</div>
+                    <div class="card-body">
+                        <h1 class="card-title" th:text="${gmailStats['TOTAL']}">0</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-warning mb-3">
+                    <div class="card-header">Gmail Aquecendo</div>
+                    <div class="card-body">
+                        <h1 class="card-title" th:text="${gmailStats['WARMING']}">0</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-secondary mb-3">
+                    <div class="card-header">Ads Total</div>
+                    <div class="card-body">
+                        <h1 class="card-title" th:text="${adsStats['TOTAL']}">0</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-header">Ads Ativas</div>
+                    <div class="card-body">
+                        <h1 class="card-title" th:text="${adsStats['ACTIVE']}">0</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

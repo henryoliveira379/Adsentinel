@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout(~{::div})}">
+<body>
+    <div>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Gestão de Contas Gmail</h2>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+                + Nova Conta
+            </button>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Dias Aque.</th>
+                    <th>Obs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="account : ${accounts}">
+                    <td th:text="${account.id}">1</td>
+                    <td th:text="${account.email}">email@test.com</td>
+                    <td>
+                        <span class="badge bg-secondary" th:text="${account.status}"
+                              th:classappend="${account.status.name() == 'ACTIVE' ? 'bg-success' : (account.status.name() == 'WARMING' ? 'bg-warning' : 'bg-secondary')}">
+                            STATUS
+                        </span>
+                    </td>
+                    <td th:text="${account.warmingDays}">0</td>
+                    <td th:text="${account.notes}">...</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Modal -->
+        <div class="modal fade" id="createModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="/gmail/create" method="post" th:object="${newAccount}">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Nova Conta Gmail</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Observações</label>
+                                <textarea class="form-control" name="notes"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainLayout" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adsentinel.presentation.desktop.MainController">
+   <left>
+      <VBox spacing="10.0" style="-fx-background-color: #2c3e50; -fx-padding: 20;">
+         <children>
+            <Label text="AdSentinel" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#showDashboard" style="-fx-font-size: 16; -fx-padding: 10;" text="Dashboard" />
+            <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#showGmailAccounts" style="-fx-font-size: 16; -fx-padding: 10;" text="Gmail Accounts" />
+            <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#showAdsAccounts" style="-fx-font-size: 16; -fx-padding: 10;" text="Google Ads" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+   </center>
+</BorderPane>
