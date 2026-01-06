@@ -69,4 +69,4 @@ A aplicação iniciará simultaneamente:
     - `web`: Controllers e Templates HTML.
 
 ---
-**Desenvolvido por AdSentinel Tech**
+**Desenvolvido por Henrique Oliveira**
